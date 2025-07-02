@@ -15,12 +15,10 @@ connectDB();
 
 // CORS configuration for production
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? ['https://your-frontend-domain.onrender.com', 'http://localhost:3000'] 
-    : true,
+  origin: true, // Allow all origins
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'x-user-id']
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-user-id', 'Content-Length', 'X-Requested-With']
 }));
 
 app.use(express.json());
